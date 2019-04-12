@@ -1,0 +1,22 @@
+.navHeader{
+    position:fixed;
+    top:0;
+    height:60px;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding:0 2%;
+    z-index:5;
+    background:white;
+    box-shadow:0px 10px 40px -10px rgba(0,64,128,0.1);
+    box-sizing:border-box;
+}
+
+.navHeaderLinks{
+    display:flex;
+}
+
+.navHeaderLink{
+    margin-left:25px;
+}
