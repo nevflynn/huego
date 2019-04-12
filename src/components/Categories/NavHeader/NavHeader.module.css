@@ -19,4 +19,12 @@
 
 .navHeaderLink{
     margin-left:25px;
+    text-decoration: none;
+    color:inherit;
+    transition:.2s ease;
+}
+
+.navHeaderLink:hover{
+    opacity:.7;
+    transition:.2s ease;
 }

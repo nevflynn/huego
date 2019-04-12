@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import '../../../../src/App.css';
+import '../../../../App.css';
 import styles from './Entry.module.css';
-import likeIcon from '../../../img/like-icon.svg';
+import likeIcon from '../../../../img/like-icon.svg';
 
 class Entry extends Component {
 

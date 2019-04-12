@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../../App.css'
+import '../../../App.css'
 import Category from './Category/Category';
 
 import Entry from './Entry/Entry';
@@ -46,7 +46,6 @@ class CategoryRow extends Component {
   }
 
     checkEntriesToRender(){
-      var {entriesToRender} = this.state;
 
         if (this.state.width > 1800){
           return 4;

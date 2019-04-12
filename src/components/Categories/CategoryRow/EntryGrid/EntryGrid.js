@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../../../../src/App.css';
+import '../../../../../src/App.css';
 import styles from './EntryGrid.module.css';
 
 class EntryGrid extends Component {

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 
-
-import '../../../../src/App.css';
+import '../../../../App.css';
 import styles from './Category.module.css';
 
 class Category extends Component {
@@ -34,10 +33,12 @@ class Category extends Component {
 
 render(){
 
+        var hideSubmit;
+
         if (!this.checkExpiry()){
-            var hideSubmit = styles.hideSubmit;
+            hideSubmit = styles.hideSubmit;
         } else {
-            var hideSubmit = '';
+            hideSubmit = '';
         }
 
         const color_1 = {
