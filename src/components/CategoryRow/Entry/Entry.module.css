@@ -1,0 +1,44 @@
+  .badge{
+    display:flex;
+    align-items:center;
+    padding:8px 10px;
+    border-radius:5px;
+    box-sizing:border-box;
+  }
+
+  .firstBadge{
+    background:#E9F2F9;
+  }
+
+  .secondBadge{
+    background:#E9F2F9;
+  }
+
+  .thirdBadge{
+    background:#E9F2F9;
+  }
+
+  .firstEntry{
+    border-radius:12px 0 0 12px;
+  }
+
+  .likeButton{
+    transition:.1s ease;
+  }
+  
+  .likeButton:hover{
+    background:#F5FCFF;
+    transition:.1s ease;
+    cursor:pointer;
+  }
+
+  .likeButtonIcon{
+    height:8px;
+    margin-right:4px;
+  }
+
+  .active{
+    background:#F5FCFF;
+  }
+
+  
