@@ -1,5 +1,6 @@
 import React, { Component, Suspense } from 'react';
-import {BrowserRouter} from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import './App.css';
 
@@ -38,6 +39,7 @@ class App extends Component {
         <BrowserRouter>
           <React.Fragment>
               <NavHeader></NavHeader>
+              <Route exact path='/' render={() => <h1 className="bigtext">HELLO!</h1>}></Route>
               <div className="Home">
                 <div>
                     {categories.map((category) => { 
