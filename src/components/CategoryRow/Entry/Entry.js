@@ -77,6 +77,7 @@ class Entry extends Component {
         }
 
         return (
+
             <div className={"card " + firstEntry}>
             <div className="cardImageContainer">
                 <img className="cardImage" src={this.props.postImage}></img>

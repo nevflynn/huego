@@ -9,8 +9,9 @@ class NavHeader extends Component {
             <div className={styles.navHeader}>
                 <h2>Huego.</h2>
                 <div className={styles.navHeaderLinks}>
-                    <h5 className={styles.navHeaderLink}>Profile</h5>
-                    <h5 className={styles.navHeaderLink}>Log Out</h5>
+                    <a href='/'><h5 className={styles.navHeaderLink}>Home</h5></a>
+                    <a href='/profile'><h5 className={styles.navHeaderLink}>Profile</h5></a>
+                    <a href='/'><h5 className={styles.navHeaderLink}>Log Out</h5></a>
                 </div>
             </div>
         )
