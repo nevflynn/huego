@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Moment from 'react-moment';
 
 import '../../../../App.css';
-import styles from './Category.module.css';
+import styles from './CategoryHeader.module.css';
 
 class Category extends Component {
 

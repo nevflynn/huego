@@ -3,7 +3,7 @@ body{
     color:#263646;
 }
 
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4, h5 , a{
     margin:0;
     
 }
@@ -11,6 +11,11 @@ h1, h2, h3, h4, h5{
 h5 {
     font-weight:500;
     font-size:.8rem;
+}
+
+.mainLogo{
+    text-decoration: none;
+    color:inherit;
 }
 
 .Home{
@@ -27,6 +32,7 @@ h5 {
     background:white;
     padding:10px;
     box-sizing:border-box;
+    border-radius:10px;
   }
 
 .cardImageContainer{
@@ -81,6 +87,14 @@ h5 {
     box-sizing:border-box;
 }
 
+.cardButtonPrimary.large{
+    padding:12px 15px;
+}
+
+.cardButtonSecondary.large{
+    padding:12px 15px;
+}
+
 .cardInfoGrid{
     justify-content: flex-end;
 }
@@ -90,8 +104,16 @@ h5 {
     display:flex;
     box-shadow:0px 10px 40px -10px rgba(0,64,128,0.2);
     overflow: hidden;
+    background:white;
 }
 
-.bigtext{
-    font-size:100pt !important;
+.expandCategoryButton a{
+    color:white;
+    padding:8px 10px;
+    display:flex;
+    align-items:center;
+    background:#263646;
+    border-radius:5px;
+    box-sizing:border-box;
+    text-decoration:none;
 }

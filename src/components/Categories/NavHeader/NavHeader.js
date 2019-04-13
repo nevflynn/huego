@@ -9,7 +9,7 @@ class NavHeader extends Component {
     render(){
         return(
             <div className={styles.navHeader}>
-                <h2>Huego.</h2>
+                <Link to='/' className="mainLogo"><h2>Huego.</h2></Link>
                 <div className={styles.navHeaderLinks}>
                     <Link to='/' className={styles.navHeaderLink}><h5>Home</h5></Link>
                     <Link to='/profile' className={styles.navHeaderLink}><h5>Profile</h5></Link>

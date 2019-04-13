@@ -6,6 +6,7 @@ import './App.css';
 
 import Categories from './components/Categories/Categories';
 import NavHeader from './components/Categories/NavHeader/NavHeader';
+import CategoryExpanded from './components/CategoryExpanded/CategoryExpanded';
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
               <NavHeader></NavHeader>
               <Route exact path='/' component={Categories}></Route>
               <Route path='/profile'></Route>
+              <Route path='/category/:categoryNumber' component={CategoryExpanded}></Route>
           </React.Fragment>
         </BrowserRouter>
       )

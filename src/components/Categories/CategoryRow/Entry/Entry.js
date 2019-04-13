@@ -62,6 +62,12 @@ class Entry extends Component {
 
         let cardBadge, placeText;
 
+        if(this.props.cardStyle){
+            var singleCard = styles.singleCard;
+        } else {
+            singleCard = null;
+        }
+
         if (this.props.position === 1){
             cardBadge = styles.badge + ' ' + styles.firstBadge;
             placeText = '1st Place';
@@ -78,7 +84,7 @@ class Entry extends Component {
 
         return (
 
-            <div className={"card " + firstEntry}>
+            <div className={"card " + firstEntry + " " + singleCard}>
             <div className="cardImageContainer">
                 <img className="cardImage" src={this.props.postImage}></img>
             </div>

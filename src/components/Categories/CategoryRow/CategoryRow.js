@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import '../../../App.css'
-import Category from './Category/Category';
+import CategoryHeader from './CategoryHeader/CategoryHeader';
 
 import Entry from './Entry/Entry';
 import EntryGrid from './EntryGrid/EntryGrid';
@@ -63,10 +63,10 @@ class CategoryRow extends Component {
 
         var {isLoaded, entries} = this.state;
         var mainEntries = entries.slice(0, this.checkEntriesToRender());
-        var lastFour = entries.slice(this.checkEntriesToRender(), );
+        var nextFourEntries = entries.slice(this.checkEntriesToRender(), );
 
         if (this.state.entries.length > this.checkEntriesToRender()){
-          var entryGrid = <EntryGrid lastFour={lastFour}></EntryGrid>;
+          var entryGrid = <EntryGrid lastFour={nextFourEntries} postCategory={this.props.postCategory}></EntryGrid>;
         }
 
 
@@ -75,11 +75,11 @@ class CategoryRow extends Component {
           } else {
             return(
               <div className={styles.CategoryRow}>
-                  <Category numberOfEntries={Object.keys(this.state.entries).length} postHexCodes={this.props.postHexCodes} postExpiry={this.props.postExpiry}></Category>
+                  <CategoryHeader numberOfEntries={Object.keys(this.state.entries).length} postHexCodes={this.props.postHexCodes} postExpiry={this.props.postExpiry}></CategoryHeader>
                   <div className="entryRow">
                       {mainEntries.map((entry, i) => {
                           return <Entry 
-                          postUser={entry.post_user} 
+                          postUser={entry.post_username} 
                           postLikes={entry.post_likes} 
                           postImage={entry.post_image} 
                           position={i + 1} 
@@ -91,7 +91,7 @@ class CategoryRow extends Component {
                  </div>
               </div>
             )
-          }
+        }
     }   
 }
 

@@ -15,7 +15,7 @@ class Categories extends Component{
     }
 
     componentDidMount(){
-        fetch('http://localhost:5000/api/posts/post_headers')
+        fetch('http://localhost:5000/api/posts/post_headers/popular')
           .then(res => res.json())
           .then(json => {
               this.setState({
@@ -30,7 +30,7 @@ class Categories extends Component{
         var {isLoaded, categories} = this.state;
 
         if (!isLoaded) {
-            return <div></div>
+            return null;
         } else {
             return  <div className="Home">
                         <div>
