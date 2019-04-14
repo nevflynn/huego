@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 import Categories from './components/Categories/Categories';
-import NavHeader from './components/Categories/NavHeader/NavHeader';
+import NavHeader from './components/NavHeader/NavHeader';
 import CategoryExpanded from './components/CategoryExpanded/CategoryExpanded';
 
 class App extends Component {
