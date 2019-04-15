@@ -16,7 +16,7 @@ class Categories extends Component{
     }
 
     componentDidMount(){
-        fetch('http://localhost:5000/api/posts/post_headers/' + (this.state.categoryFilter ? 'new' : 'popular'))
+        fetch('http://localhost:5000/api/posts/post_headers/new')
           .then(res => res.json())
           .then(json => {
               this.setState({
@@ -26,21 +26,6 @@ class Categories extends Component{
           });
     }
 
-    componentDidUpdate(prevProps){
-        if(prevProps.categoryFilter !== this.props.categoryFilter){
-        fetch('http://localhost:5000/api/posts/post_headers/' + (this.state.categoryFilter ? 'popular' : 'new'))
-          .then(res => res.json())
-          .then(json => {
-              this.setState({
-                isLoaded:true,
-                categories: json,
-                categoryFilter: !this.state.categoryFilter
-              })
-          });
-        }
-    }   
-
-    
         render(){
         var {isLoaded, categories} = this.state;
 

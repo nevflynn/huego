@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 
+import CategoryOrderToggle from './CategoryOrderToggle/CategoryOrderToggle';
 
 import styles from '../CategoryExpandedHeader/CategoryExpandedHeader.module.css';
 
@@ -78,7 +79,8 @@ class CategoryExpandedHeader extends Component {
                         <div className="cardButtonSecondary large"><h5>{this.categoryStatus()}</h5></div>
                         <div className="cardButtonSecondary large"><h5>{postCount} entries</h5></div>
                     </div>
-                    <div>
+                    <div className={styles.rightContainer}>
+                        <CategoryOrderToggle filterCategories={this.props.filterCategories}></CategoryOrderToggle>
                         <div className={"cardButtonPrimary large " + (this.checkExpiry() ? null : styles.hide)}><h5>Submit an entry</h5></div>
                     </div>
                 </div>

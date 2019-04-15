@@ -2,7 +2,7 @@
   .toggleWrapper{
     display:flex;
     align-items:center;
-    margin-left:40px;
+    margin-right:30px;
   }
 
   .toggleWrapper input{
