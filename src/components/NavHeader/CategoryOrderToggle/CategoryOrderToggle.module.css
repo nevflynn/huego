@@ -20,7 +20,7 @@
               appearance: none;
       width: 3em;
       height: 1.5em;
-      background: #ddd;
+      background: #8c82fc;
       border-radius: 3em;
       position: relative;
       cursor: pointer;
@@ -30,7 +30,7 @@
     }
     
     input[type="checkbox"].toggleSwitch:checked{
-      background: #0ebeff;
+      background: #f73859;
     }
     
     input[type="checkbox"].toggleSwitch:after{

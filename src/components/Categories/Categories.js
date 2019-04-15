@@ -10,12 +10,13 @@ class Categories extends Component{
         super(props);
         this.state = {
           categories: [],
-          isLoaded: false, 
+          isLoaded: false,
+          categoryFilter:this.props.categoryFilter
         }
     }
 
     componentDidMount(){
-        fetch('http://localhost:5000/api/posts/post_headers/popular')
+        fetch('http://localhost:5000/api/posts/post_headers/' + (this.state.categoryFilter ? 'new' : 'popular'))
           .then(res => res.json())
           .then(json => {
               this.setState({
@@ -24,6 +25,20 @@ class Categories extends Component{
               })
           });
     }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.categoryFilter !== this.props.categoryFilter){
+        fetch('http://localhost:5000/api/posts/post_headers/' + (this.state.categoryFilter ? 'popular' : 'new'))
+          .then(res => res.json())
+          .then(json => {
+              this.setState({
+                isLoaded:true,
+                categories: json,
+                categoryFilter: !this.state.categoryFilter
+              })
+          });
+        }
+    }   
 
     
         render(){

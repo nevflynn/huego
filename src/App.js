@@ -10,12 +10,27 @@ import CategoryExpanded from './components/CategoryExpanded/CategoryExpanded';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.filterCategories = this.filterCategories.bind(this);
+
+    this.state = {
+      categoryFilter: true,
+    }
+
+}
+
+  filterCategories(){
+    this.setState({categoryFilter: !this.state.categoryFilter});
+  }
+
   render(){
       return(
         <BrowserRouter>
           <React.Fragment>
-              <NavHeader></NavHeader>
-              <Route exact path='/' component={Categories}></Route>
+              <Route path='/' render={(props) => <NavHeader filterCategories={this.filterCategories}></NavHeader>}></Route>
+              <Route exact path='/' render={(props) => <Categories categoryFilter={this.state.categoryFilter}></Categories>}></Route>
               <Route path='/profile'></Route>
               <Route path='/category/:categoryNumber' component={CategoryExpanded}></Route>
           </React.Fragment>
