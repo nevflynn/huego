@@ -14,7 +14,8 @@
   }
   
   input[type="checkbox"].toggleSwitch{
-      font-size: 20px;
+      margin-top:2px;
+      font-size: 16px;
       -webkit-appearance: none;
          -moz-appearance: none;
               appearance: none;

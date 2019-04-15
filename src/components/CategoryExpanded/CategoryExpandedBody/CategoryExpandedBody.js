@@ -15,7 +15,7 @@ class CategoryExpandedBody extends Component {
       }
 
     componentDidMount(props){
-        let url = 'http://localhost:5000/api/posts/post_category/' + this.props.categoryNumber;
+        let url = 'http://localhost:5000/api/posts/post_category/' + this.props.categoryNumber + '/new';
         fetch(url)
         .then(res => res.json())
         .then(json => {

@@ -33,6 +33,7 @@ h5 {
     padding:10px;
     box-sizing:border-box;
     border-radius:10px;
+    transition:.5s ease;
   }
 
 .cardImageContainer{
