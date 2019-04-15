@@ -6,11 +6,11 @@ class CategoryOrderToggle extends Component {
     render(){
         return  (
             <div className={styles.toggleWrapper}>
-                <h5>New</h5>
+                <h5>Popular</h5>
                     <div onClick={this.props.filterCategories}>
                         <input type="checkbox" className={styles.toggleSwitch}></input>
                     </div>
-                <h5>Popular</h5>
+                <h5>New</h5>
             </div>
         )
     }
