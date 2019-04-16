@@ -68,14 +68,14 @@ class Entry extends Component {
             singleCard = null;
         }
 
-        if (this.props.position === 1){
+        if (this.props.id === this.props.placement[0].postId){
             cardBadge = styles.badge + ' ' + styles.firstBadge;
             placeText = '1st Place';
             var firstEntry = styles.firstEntry;
-        } else if (this.props.position === 2){
+        } else if (this.props.id === this.props.placement[1].postId){
             cardBadge = styles.badge + ' ' + styles.secondBadge;
             placeText = '2nd Place';
-        } else if (this.props.position === 3){
+        } else if (this.props.id === this.props.placement[2].postId){
             cardBadge = styles.badge + ' ' + styles.thirdBadge;
             placeText = '3rd Place';
         } else {

@@ -58,6 +58,21 @@ class CategoryRow extends Component {
       }
     }
 
+    //Returns top three entries which is then passed into Entry as a prop
+    orderEntries(json){
+      var entries = json;
+      var newArray = [{}];
+      entries.forEach((entry, i) => {
+        var postId = entry._id;
+        var postLikes = entry.post_likes;
+        newArray.push({postId, postLikes});
+      })
+      newArray.sort(function(a, b){
+        return b.postLikes-a.postLikes
+    })
+      return [newArray[1], newArray[2], newArray[3]];
+    }
+
 
     render(){
 
@@ -79,6 +94,7 @@ class CategoryRow extends Component {
                   <div className="entryRow">
                       {mainEntries.map((entry, i) => {
                           return <Entry 
+                          placement={this.orderEntries(this.state.entries)}
                           postUser={entry.post_username} 
                           postLikes={entry.post_likes} 
                           postImage={entry.post_image} 

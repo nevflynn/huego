@@ -41,12 +41,27 @@ class CategoryExpandedBody extends Component {
         }
     }   
 
+    orderEntries(json){
+      var entries = json;
+      var newArray = [{}];
+      entries.forEach((entry, i) => {
+        var postId = entry._id;
+        var postLikes = entry.post_likes;
+        newArray.push({postId, postLikes});
+      })
+      newArray.sort(function(a, b){
+        return b.postLikes-a.postLikes
+    })
+      return [newArray[1], newArray[2], newArray[3]];
+    }
+
     render(){
 
         return (
             <div className={styles.CategoryExpandedBody}>
             {this.state.entries.map((entry, i) => {
                 return <Entry
+                placement={this.orderEntries(this.state.entries)}
                 cardStyle={true}
                 postUser={entry.post_username} 
                 postLikes={entry.post_likes} 
