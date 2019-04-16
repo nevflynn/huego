@@ -3,7 +3,7 @@ body{
     color:#263646;
 }
 
-h1, h2, h3, h4, h5 , a{
+h1, h2, h3, h4, h5 , a, p{
     margin:0;
     
 }
@@ -117,4 +117,20 @@ h5 {
     border-radius:5px;
     box-sizing:border-box;
     text-decoration:none;
+}
+
+.UploadEntry{
+    margin-top:60px;
+    height:calc(100vh - 60px);
+    display:flex;
+    justify-content: center;
+    align-items:center;
+
+}
+
+.dropzone{
+    background:white;
+    padding:60px;
+    border-radius:15px;
+    box-shadow:0px 10px 40px -10px rgba(0,64,128,0.2);
 }

@@ -7,6 +7,7 @@ import './App.css';
 import Categories from './components/Categories/Categories';
 import NavHeader from './components/NavHeader/NavHeader';
 import CategoryExpanded from './components/CategoryExpanded/CategoryExpanded';
+import UploadEntry from './components/UploadEntry/UploadEntry';
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
               <Route exact path='/' component={Categories}></Route>
               <Route path='/profile'></Route>
               <Route path='/category/:categoryNumber' component={CategoryExpanded}></Route>
+              <Route path='/upload' component={UploadEntry}></Route>
           </React.Fragment>
         </BrowserRouter>
       )
