@@ -7,8 +7,6 @@ import styles from '../NavHeader/NavHeader.module.css';
 class NavHeader extends Component {
     render(){
 
-        
-
         return(
             <div className={styles.navHeader}>
             <div className={styles.navHeaderLeft}>

@@ -1,0 +1,200 @@
+.uploadEntry{
+    margin-top:60px;
+    height:calc(100vh - 60px);
+    display:flex;
+    justify-content: center;
+    align-items:center;
+
+}
+/* First Modal */
+
+.modalContainer1{
+    background:white;
+    width:450px;
+    padding:20px;
+    border-radius:35px;
+    box-shadow:0px 10px 40px -10px rgba(0,64,128,0.2);
+    animation:fadeInUp .5s;
+}
+
+.cloudIconContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cloudIcon{
+    width:50px;
+    padding-bottom:40px;
+    padding-top:20px;
+}
+
+.dropzone{
+    background:white;
+    padding:80px 60px;
+    border-radius:15px;
+    box-shadow:0px 10px 40px -10px rgba(0,64,128,0.2);
+    text-align: center;
+    transition:.2s ease;
+}
+
+.dropzone:hover{
+    box-shadow:0px 10px 30px -10px rgba(0,64,128,0.4);
+    transition:.3s ease;
+    cursor:pointer;
+}
+
+.dropzone:focus{
+    outline:none;
+}
+
+.ruleCard{
+    background:#f4f4f4;
+    border-radius:15px;
+    padding:30px;
+    margin-bottom:20px;
+    display:flex;
+    align-items: center;
+}
+
+.ruleCard p{
+    margin-top:5px;
+}
+
+.ruleCardPalette{
+    width:35px;
+    height:35px;
+    margin-right:20px;
+    border-radius:6px;
+    display:grid;
+    grid-template-rows:100%;
+    grid-template-rows: 44% 28% 17% 11%;
+    overflow:hidden;
+}
+
+.imageIcon{
+    width:35px;
+    margin-right:20px;
+}
+
+.boldSpan{
+    font-weight:bold;
+}
+
+.cropControls{
+    display:flex;
+    align-items: center;
+    box-sizing:border-box;
+    padding-top:20px;
+    margin:0 50px;
+}
+
+
+.slider{
+    margin:0 40px;
+}
+
+.cancelButton{
+    display:flex;
+    align-items:center;
+    padding:15px 18px;
+    border: 1px #E9F2F9 solid;
+    border-radius:5px;
+    box-sizing:border-box;
+    font-size:10pt;
+}
+
+
+.cancelButton:hover{
+    background:#E9F2F9;
+    transition:.2s ease;
+    cursor: pointer;
+}
+
+.cropButton{
+    display:flex;
+    align-items:center;
+    background:#8c82fc;
+    color:white;
+    padding:15px 18px;
+    border-radius:5px;
+    box-sizing:border-box;
+    white-space: nowrap;
+    font-size:10pt;
+    border:none;
+    transition:.2s ease;
+}
+
+.cropButton:hover{
+    background:#7B70ED;
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.modalContainer2{
+    border-radius:35px;
+    box-shadow:0px 10px 40px -10px rgba(0,64,128,0.2);
+    overflow:hidden;
+    padding:20px;
+    background:white;
+}
+
+.cropEntryWindow{
+    position:relative;
+    width:600px;
+    height:450px;
+    box-sizing:border-box;
+    border-radius:15px !important;
+    overflow:hidden;
+    animation:fadeInUp .5s;
+}
+
+.modalContainer3{
+
+    background:white;
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+    box-shadow:0px 10px 40px -10px rgba(0,64,128,0.2);
+    border-radius:35px;
+    position:relative;
+    animation:fadeInUp .5s;
+
+}
+
+.cropPreviewContainer{
+    width:600px;
+    height:450px;
+    border-radius:15px;
+    overflow: hidden;
+}   
+
+.modalContainer3 img{
+    height:100%;
+    width:100%;
+}
+
+.submitControls{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing:border-box;
+    padding-top:20px;
+    margin:0 50px;
+}
+
+
+
+
+
+@keyframes fadeInUp{
+    from{
+        opacity:0;
+        transform:translatey(30px);
+    }
+    to{         
+        transform:translatey(0px);
+        opacity:1;
+    }
+}

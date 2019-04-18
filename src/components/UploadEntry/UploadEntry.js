@@ -5,7 +5,12 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import Cropper from 'react-easy-crop';
 import Slider from '@material-ui/lab/Slider';
-import getCroppedImg from './cropImage'
+import getCroppedImg from './cropImage';
+import cloudIcon from '../../img/cloud.svg';
+import imageIcon from '../../img/image.svg';
+import styles from './UploadEntry.module.css';
+import {withRouter, Redirect} from 'react-router-dom';
+
 
 
 //In bytes
@@ -24,7 +29,10 @@ class UploadEntry extends Component {
             progress:0,
             croppedAreaPixels: null,
             croppedImage: null,
-            croppedUrl: null
+            croppedUrl: null,
+            postHeaders: null,
+            isLoaded:false,
+            redirect:false
         }
     }
 
@@ -37,13 +45,24 @@ class UploadEntry extends Component {
         var reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function () {
-        //   console.log(reader.result);
           this.setState({imageSrc: reader.result, progress: 1});
         }.bind(this);
         reader.onerror = function (error) {
           console.log('Error: ', error);
         };
      }
+
+    componentDidMount(props){
+        let url = 'http://localhost:5000/api/posts/post_headers/' + this.props.match.params.categoryNumber;
+        fetch(url)
+        .then(res => res.json())
+        .then(json => {
+            this.setState({
+                postHeaders: json,
+                isLoaded: true,
+            })
+        });
+    }
 
     onCropChange = crop => {
         this.setState({ crop })
@@ -111,10 +130,10 @@ class UploadEntry extends Component {
                 }
                 axios.post('http://localhost:5000/api/posts/add_v2', {
                     post_image: response.data.imageUrl,
-                    post_category: 3
+                    post_category: this.props.match.params.categoryNumber
                   }, {headers: headers})
-                  .then(function (response) {
-                    console.log(response);
+                  .then((response) => {
+                    this.setState({redirect:true})
                   })
                   .catch(function (error) {
                     console.log(error);
@@ -123,66 +142,124 @@ class UploadEntry extends Component {
             .catch(function (response) {
                 //handle error
                 console.log(response);
-            });        
+            });   
+    }
+
+    renderRedirect(){
+        if(this.state.redirect){ 
+            return <Redirect to={'/category/' + this.props.match.params.categoryNumber}/>
+        }
     }
 
     render(){
 
-        var modal;
-        if (this.state.progress === 0) {
-            modal =  <div>
-                                <Dropzone onDrop={this.handleOnDrop} maxSize={imageMaxSize} multiple={false} accept='image/*'>
-                                    {({getRootProps, getInputProps}) => (
-                                        <section>
-                                        <div {...getRootProps({className: 'dropzone'})}>
-                                            <input {...getInputProps()} />
-                                            <p>Drag 'n' drop some files here, or click to select files</p>
-                                        </div>
-                                        </section>
-                                    )}
-                                </Dropzone>
+        if(this.state.isLoaded){
+
+            var color_1, color_2, color_3, color_4;
+
+            var postHexCodes = this.state.postHeaders[0].post_hex_codes;
+
+            color_1 = {
+                backgroundColor: postHexCodes[0],
+            };
+            color_2 = {
+                backgroundColor: postHexCodes[1],
+            };
+            color_3 = {
+                backgroundColor: postHexCodes[2],
+            };
+            color_4 = {
+                backgroundColor: postHexCodes[3],
+            };
+
+            var modal;
+            if (this.state.progress === 0) {
+                modal =  <div className={styles.modalContainer1}>
+                            <div className={styles.cloudIconContainer}><img src={cloudIcon} className={styles.cloudIcon}></img></div>
+                            <div className={styles.ruleCard}>
+                                <div className={styles.ruleCardPalette}>
+                                    <div style={color_1}></div>
+                                    <div style={color_2}></div>
+                                    <div style={color_3}></div>
+                                    <div style={color_4}></div>
+                                </div>
+                                <div>
+                                    <h3>Your colour palette</h3>
+                                    <p>Only upload designs using this palette</p>
+                                </div>
                             </div>
-        } else if (this.state.progress === 1) {
-            modal = <div className="CropEntryContainer">
-                            <div className="CropEntryWindow">
-                                <Cropper className="Cropper"
-                                    image={this.state.imageSrc}
-                                    crop={this.state.crop}
-                                    zoom={this.state.zoom}
-                                    aspect={this.state.aspect}
-                                    onCropChange={this.onCropChange}
-                                    onCropComplete={this.onCropComplete}
-                                    onZoomChange={this.onZoomChange}
-                                />
+                            <div className={styles.ruleCard}>
+                                <div>
+                                    <img src={imageIcon} className={styles.imageIcon}></img>
+                                </div>
+                                <div>
+                                    <h3>High resolution images</h3>
+                                    <p>PNG and JPG only. In-app cropping to 4:3</p>
+                                </div>
                             </div>
-                            <div className="controls">
-                            <button className="cropButton" onClick={() => this.setState({progress: 0})}>Cancel</button>
-                                <Slider
-                                    value={this.state.zoom}
-                                    min={1}
-                                    max={3}
-                                    aria-labelledby="Zoom"
-                                    onChange={(e, zoom) => this.onZoomChange(zoom)}
-                                />  
-                                <button className="cropButton" onClick={this.showCroppedImage}>Crop and upload</button>
+                            <Dropzone onDrop={this.handleOnDrop} maxSize={imageMaxSize} multiple={false} accept='image/*'>
+                                {({getRootProps, getInputProps}) => (
+                                    <section>
+                                    <div {...getRootProps({className: styles.dropzone})}>
+                                        <input {...getInputProps()} />
+                                        <p><span className={styles.boldSpan}>Drag and drop</span> your entry here, <span className={styles.boldSpan}>or click</span> to select a file</p>
+                                    </div>
+                                    </section>
+                                )}
+                            </Dropzone>
+                        </div>
+            } else if (this.state.progress === 1) {
+                modal = <div className={styles.modalContainer2}>
+                                <div className={styles.cropEntryWindow}>
+                                    <Cropper
+                                        image={this.state.imageSrc}
+                                        crop={this.state.crop}
+                                        zoom={this.state.zoom}
+                                        aspect={this.state.aspect}
+                                        onCropChange={this.onCropChange}
+                                        onCropComplete={this.onCropComplete}
+                                        onZoomChange={this.onZoomChange}
+                                        showGrid={false}
+                                    />
+                                </div>
+                                <div className={styles.cropControls}>
+                                <button className={styles.cancelButton} onClick={() => this.setState({progress: 0})}>Cancel</button>
+                                        <Slider
+                                            className={styles.slider}
+                                            value={this.state.zoom}
+                                            min={1}
+                                            max={3}
+                                            aria-labelledby="Zoom"
+                                            onChange={(e, zoom) => this.onZoomChange(zoom)}
+                                        />
+                                    <button className={styles.cropButton} onClick={this.showCroppedImage}>Crop image</button>
+                                </div>
+                            </div> 
+            } else if (this.state.progress === 2){
+                modal = <div className={styles.modalContainer3}>
+                            <div className={styles.cropPreviewContainer}>
+                                <img src={(this.state.croppedImage ? this.state.croppedImage : null)}></img>
                             </div>
-                        </div> 
-        } else if (this.state.progress === 2){
-            modal = <div className="SubmitContainer">
-                        <img src={(this.state.croppedImage ? this.state.croppedImage : null)}></img>
-                        <button className="cropButton" onClick={() => this.uploadCroppedImage(this.state.croppedImage)}>Submit entry</button>
-                    </div>
+                            <div className={styles.submitControls}>
+                                <button onClick={() => this.setState({progress:1})} className={styles.cancelButton}>Back to crop</button>
+                                <button onClick={() => this.uploadCroppedImage(this.state.croppedImage)} className={styles.cropButton}>Submit entry</button>
+                            </div>
+                        </div>
+            }
+                    return(
+                        <div className={styles.uploadEntry}>
+                            {modal}
+                            {this.renderRedirect()}
+                        </div>
+                    )
+                } else {
+                    return null
+            } 
         }
-
-        return(
-            <div className="UploadEntry">
-                {modal}
-            </div>
-        )
     }
-}
 
-export default UploadEntry;
+
+export default withRouter(UploadEntry);
 
 
 

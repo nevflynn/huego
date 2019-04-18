@@ -29,23 +29,6 @@
     grid-template-rows: 44% 28% 17% 11%;
 }
 
-.paletteOuter div:nth-last-of-type(1){
-    background:#ff9393
-
-}
-
-.paletteOuter div:nth-last-of-type(2){
-    background:#ff6767;
-}
-
-.paletteOuter div:nth-last-of-type(3){
-    background:#ff3434;
-}
-
-.paletteOuter div:nth-last-of-type(4){
-    background:#233142;
-}
-
 .hide{
     display:none;
 }

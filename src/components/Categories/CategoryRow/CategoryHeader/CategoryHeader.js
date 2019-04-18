@@ -89,7 +89,5 @@ render(){
 
 export default Category;
 
-{/* <Link to='/upload' className={styles.navHeaderLink}><h5>Upload</h5></Link> */}
-
 
 
