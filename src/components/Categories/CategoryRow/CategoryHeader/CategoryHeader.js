@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
 
 import '../../../../App.css';
 import styles from './CategoryHeader.module.css';
@@ -75,9 +76,11 @@ render(){
                         <h5>{this.props.numberOfEntries} Entries</h5>
                     </div>
                 </div>
+                <Link  to={'/new/' + this.props.postCategory}>
                     <div className={"cardButtonPrimary " + hideSubmit}>
                         <h5>Submit Entry</h5>
                     </div>
+                </Link>
                 </div>
             </div>
         );
@@ -85,5 +88,8 @@ render(){
 }
 
 export default Category;
+
+{/* <Link to='/upload' className={styles.navHeaderLink}><h5>Upload</h5></Link> */}
+
 
 

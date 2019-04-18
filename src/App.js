@@ -20,6 +20,7 @@ class App extends Component {
               <Route path='/profile'></Route>
               <Route path='/category/:categoryNumber' component={CategoryExpanded}></Route>
               <Route path='/upload' component={UploadEntry}></Route>
+              <Route path='/new/:categoryNumber' component={UploadEntry}></Route>
           </React.Fragment>
         </BrowserRouter>
       )

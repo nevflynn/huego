@@ -90,7 +90,12 @@ class CategoryRow extends Component {
           } else {
             return(
               <div className={styles.CategoryRow}>
-                  <CategoryHeader numberOfEntries={Object.keys(this.state.entries).length} postHexCodes={this.props.postHexCodes} postExpiry={this.props.postExpiry}></CategoryHeader>
+                  <CategoryHeader 
+                    numberOfEntries={Object.keys(this.state.entries).length} 
+                    postHexCodes={this.props.postHexCodes} 
+                    postExpiry={this.props.postExpiry}
+                    postCategory={this.props.postCategory}>
+                  </CategoryHeader>
                   <div className="entryRow">
                       {mainEntries.map((entry, i) => {
                           return <Entry 
