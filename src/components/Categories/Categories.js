@@ -34,13 +34,14 @@ class Categories extends Component{
         } else {
             return  <div className="Home">
                         <div>
-                            {categories.map((category) => { 
+                            {categories.map((category, i) => { 
                                 return <CategoryRow 
                                     className="CategoryRow" 
                                     postCategory={category.post_category}
                                     postHexCodes={category.post_hex_codes}
                                     postExpiry={category.post_expiry}
-                                    key={category._id}>
+                                    key={category._id}
+                                    index={i}>
                                 </CategoryRow>
                             })}
                         </div>

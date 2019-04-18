@@ -2,5 +2,18 @@
   display:flex;
   align-self: flex-start;
   margin:30px 0;
+  animation:fadeInUp .5s;
+  animation-fill-mode: backwards;
 }
 
+
+@keyframes fadeInUp{
+  from{
+      opacity:0;
+      transform:translatey(20px);
+  }
+  to{         
+      transform:translatey(0px);
+      opacity:1;
+  }
+}
