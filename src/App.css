@@ -80,12 +80,17 @@ h5 {
     background:#263646;
     border-radius:5px;
     box-sizing:border-box;
+    transition:.1s ease;
+}
+
+.cardButtonPrimary:hover{
+    background:#8885f3;
+    transition:.1s ease;
 }
 
 .cardButtonSecondary{
     display:flex;
     align-items:center;
-    margin-right:5px;
     padding:8px 10px;
     border: 1px #E9F2F9 solid;
     border-radius:5px;
@@ -124,3 +129,4 @@ h5 {
 }
 
 /* Temporary upload styles */
+

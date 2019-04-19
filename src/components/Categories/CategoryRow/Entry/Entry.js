@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../../../../App.css';
 import styles from './Entry.module.css';
 import likeIcon from '../../../../img/like-icon.svg';
+import crownIcon from '../../../../img/crown-icon.svg';
 
 class Entry extends Component {
 
@@ -60,7 +61,7 @@ class Entry extends Component {
 
     render(){
 
-        let cardBadge, placeText;
+        let cardBadge, placeText, ribbon;
 
         if(this.props.cardStyle){
             var singleCard = styles.singleCard;
@@ -69,27 +70,25 @@ class Entry extends Component {
         }
 
         if (this.props.id === this.props.placement[0].postId){
-            cardBadge = styles.badge + ' ' + styles.firstBadge;
-            placeText = '1st Place';
-            var firstEntry = styles.firstEntry;
+            ribbon = <div className={[styles.ribbon, styles.firstRibbon].join(' ')}>
+                            <img src={crownIcon} className={styles.crownIcon}></img>
+                        </div>
         } else if (this.props.id === this.props.placement[1].postId){
-            cardBadge = styles.badge + ' ' + styles.secondBadge;
-            placeText = '2nd Place';
+            ribbon = <div className={styles.ribbon}>2</div>
         } else if (this.props.id === this.props.placement[2].postId){
-            cardBadge = styles.badge + ' ' + styles.thirdBadge;
-            placeText = '3rd Place';
+            ribbon = <div className={styles.ribbon}>3</div>
         } else {
 
         }
 
         return (
 
-            <div className={"card " + firstEntry + " " + singleCard}>
-            <div className="cardImageContainer">
-                <img className="cardImage" src={this.props.postImage}></img>
-            </div>
+            <div className={"card " + singleCard}>
+                <div className={"cardImageContainer " + styles.cardImageContainer} >
+                    {ribbon}
+                    <img className={"cardImage " + styles.cardImage} src={this.props.postImage}></img>
+                </div>
                 <div className="cardInfo">
-                    <div className="cardInfoLeft">
                         <div className={"cardButtonSecondary " + styles.likeButton + ' ' + (this.state.likeButtonClicked ? styles.active : '')} 
                         onClick={() => {this.likeButtonClicked()}}>
                             <img src={likeIcon} className={styles.likeButtonIcon}></img>
@@ -98,10 +97,6 @@ class Entry extends Component {
                         <div className="cardButtonSecondary">
                             <h5>{this.props.postUser}</h5>
                         </div>
-                    </div>
-                    <div className={cardBadge}>
-                        <h5>{placeText}</h5>
-                    </div>
                 </div>
             </div>
         );

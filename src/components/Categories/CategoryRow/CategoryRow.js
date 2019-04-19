@@ -78,24 +78,18 @@ class CategoryRow extends Component {
 
         var {isLoaded, entries} = this.state;
         var mainEntries = entries.slice(0, this.checkEntriesToRender());
-        var nextFourEntries = entries.slice(this.checkEntriesToRender(), );
+        var nextFourEntries = entries.slice(this.checkEntriesToRender(), this.checkEntriesToRender() + 4);
 
         if (this.state.entries.length > this.checkEntriesToRender()){
           var entryGrid = <EntryGrid lastFour={nextFourEntries} postCategory={this.props.postCategory}></EntryGrid>;
         }
-
-        var delayTime = this.props.index*.1;
-
-        const delayIn = {
-          animationDelay: delayTime + 's',
-        };
 
 
         if (!isLoaded) {
             return <div></div>
           } else {
             return(
-              <div className={styles.CategoryRow} style={delayIn}>
+              <div className={styles.CategoryRow}>
                   <CategoryHeader 
                     numberOfEntries={Object.keys(this.state.entries).length} 
                     postHexCodes={this.props.postHexCodes} 

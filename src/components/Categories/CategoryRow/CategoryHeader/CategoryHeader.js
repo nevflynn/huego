@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
-
+import entriesIcon from '../../../../img/entries-icon.svg';
 import '../../../../App.css';
 import styles from './CategoryHeader.module.css';
 
@@ -69,11 +69,12 @@ render(){
                 <div className="cardInfoLeft">
                     <div className="cardButtonSecondary">
                         <h5>
-                            {this.categoryStatus()}
+                            {this.categoryStatus()} 
                         </h5>
                     </div>
-                    <div className="cardButtonSecondary">
-                        <h5>{this.props.numberOfEntries} Entries</h5>
+                    <div className={styles.entriesContainer}>
+                        <img src={entriesIcon} className={styles.entriesIcon}></img>
+                        <h5>{this.props.numberOfEntries}</h5>
                     </div>
                 </div>
                 <Link  to={'/new/' + this.props.postCategory}>

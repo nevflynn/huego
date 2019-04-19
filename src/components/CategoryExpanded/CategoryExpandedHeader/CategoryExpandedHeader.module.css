@@ -32,3 +32,13 @@
 .hide{
     display:none;
 }
+
+.entriesIcon{
+    height:20px;
+    margin:0 6px 0 10px;
+}
+
+.entriesContainer{
+    display:flex;
+    align-items:center;
+}

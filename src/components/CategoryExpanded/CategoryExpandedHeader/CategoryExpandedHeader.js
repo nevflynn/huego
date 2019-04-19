@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Moment from 'react-moment';
 
 import CategoryOrderToggle from './CategoryOrderToggle/CategoryOrderToggle';
-
+import entriesIcon from '../../../img/entries-icon.svg';
 import styles from '../CategoryExpandedHeader/CategoryExpandedHeader.module.css';
 
 class CategoryExpandedHeader extends Component {
@@ -40,7 +40,7 @@ class CategoryExpandedHeader extends Component {
 
       categoryStatus(){
           if(this.checkExpiry()){
-              return <Moment toNow ago>{this.state.postHeaders[0].post_expiry}</Moment>;
+              return <span><Moment toNow ago>{this.state.postHeaders[0].post_expiry}</Moment> remaining</span>;
           } else {
               return 'Closed';
           }
@@ -77,7 +77,11 @@ class CategoryExpandedHeader extends Component {
                             <div style={color_4}></div>
                         </div>
                         <div className="cardButtonSecondary large"><h5>{this.categoryStatus()}</h5></div>
-                        <div className="cardButtonSecondary large"><h5>{postCount} entries</h5></div>
+                        <div className={styles.entriesContainer}>
+                            <img src={entriesIcon} className={styles.entriesIcon}></img>
+                            <h5>{postCount} Entries</h5>
+                        </div>
+
                     </div>
                     <div className={styles.rightContainer}>
                         <CategoryOrderToggle filterCategories={this.props.filterCategories}></CategoryOrderToggle>

@@ -45,3 +45,28 @@
     border-radius:8px;
     box-shadow:0px 10px 40px -10px rgba(0,64,128,0.2);
   }
+
+  .ribbon{
+    position:absolute;
+    left:10px;
+    z-index: 1;
+    background:pink;
+    width:25px;
+    height:30px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:0 0 3px 3px;
+    font-size:10pt;
+    font-weight:bold;
+    background:#F5FCFF;
+    transition:.1s linear;
+  }
+
+  .firstRibbon{
+    background:#8885f3;
+  }
+
+  .crownIcon{
+    width:15px;
+  }
