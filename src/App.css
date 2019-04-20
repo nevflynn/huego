@@ -37,7 +37,6 @@ h5 {
     padding:10px;
     box-sizing:border-box;
     border-radius:10px;
-    transition:.5s ease;
   }
 
 .cardImageContainer{
@@ -56,6 +55,7 @@ h5 {
     left:0;
     top:0;
     bottom:0;
+    animation:fadeIn .5s;
 }
 
 .cardInfo{
@@ -80,12 +80,12 @@ h5 {
     background:#263646;
     border-radius:5px;
     box-sizing:border-box;
-    transition:.1s ease;
+    transition:.2s ease;
 }
 
 .cardButtonPrimary:hover{
     background:#8885f3;
-    transition:.1s ease;
+    transition:.2s ease;
 }
 
 .cardButtonSecondary{
@@ -128,5 +128,13 @@ h5 {
     text-decoration:none;
 }
 
-/* Temporary upload styles */
-
+@keyframes fadeIn {
+    from{
+        opacity:0;
+        /* transform:translatey(10px) */
+    }
+    to{
+        opacity:1;
+        /* transform:translatey(0) */
+    }
+}

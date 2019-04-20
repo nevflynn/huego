@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import EntryPlaceholder from '../EntryPlaceholder/EntryPlaceholder';
 import '../../../../App.css';
 import styles from './Entry.module.css';
 import likeIcon from '../../../../img/like-icon.svg';
 import crownIcon from '../../../../img/crown-icon.svg';
+import LazyLoad from 'react-lazyload';
+
 
 class Entry extends Component {
 
@@ -61,7 +63,7 @@ class Entry extends Component {
 
     render(){
 
-        let cardBadge, placeText, ribbon;
+        let ribbon;
 
         if(this.props.cardStyle){
             var singleCard = styles.singleCard;
@@ -71,8 +73,8 @@ class Entry extends Component {
 
         if (this.props.id === this.props.placement[0].postId){
             ribbon = <div className={[styles.ribbon, styles.firstRibbon].join(' ')}>
-                            <img src={crownIcon} className={styles.crownIcon}></img>
-                        </div>
+                        <img src={crownIcon} className={styles.crownIcon}></img>
+                    </div>
         } else if (this.props.id === this.props.placement[1].postId){
             ribbon = <div className={styles.ribbon}>2</div>
         } else if (this.props.id === this.props.placement[2].postId){
@@ -86,7 +88,9 @@ class Entry extends Component {
             <div className={"card " + singleCard}>
                 <div className={"cardImageContainer " + styles.cardImageContainer} >
                     {ribbon}
-                    <img className={"cardImage " + styles.cardImage} src={this.props.postImage}></img>
+                    <LazyLoad height={200} offset={[-200, 0]} placeholder={<EntryPlaceholder />} once={true}>
+                        <img className={"cardImage " + styles.cardImage} src={this.props.postImage}></img>
+                    </LazyLoad>
                 </div>
                 <div className="cardInfo">
                         <div className={"cardButtonSecondary " + styles.likeButton + ' ' + (this.state.likeButtonClicked ? styles.active : '')} 

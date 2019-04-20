@@ -13,7 +13,36 @@
     right:0;
     bottom:0;
     display:grid;
-    grid-template-rows: 44% 28% 17% 11%;
+    grid-template-rows: 42% 25% 19% 15%;
+}
+
+.paletteBlock{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paletteHex{
+    padding:5px;
+    background:rgba(0,0,0,.05);
+    border-radius:5px;
+    color:white;
+    font-size:9pt;
+    opacity:0;
+    transition:.2s ease;
+}
+
+.paletteBlock:hover{
+    cursor:pointer;
+}
+
+.paletteBlock:hover .paletteHex{
+    opacity:1;
+    transition:.2s ease;
+}
+
+.paletteHex:hover{
+    background:rgba(0,0,0,.08);
 }
 
 .hideSubmit{

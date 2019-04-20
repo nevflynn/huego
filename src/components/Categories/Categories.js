@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import '../../App.css';
 import CategoryRow from './CategoryRow/CategoryRow';
-
+import LazyLoad from 'react-lazyload';
 
 class Categories extends Component{
 
@@ -35,15 +35,18 @@ class Categories extends Component{
             return  <div className="Home">
                         <div>
                             {categories.map((category, i) => { 
-                                return <CategoryRow 
-                                    className="CategoryRow" 
-                                    postCategory={category.post_category}
-                                    postHexCodes={category.post_hex_codes}
-                                    postExpiry={category.post_expiry}
-                                    key={category._id}
-                                    index={i}>
-                                </CategoryRow>
-                            })}
+                                return (
+                                <LazyLoad height={300} key={i}>
+                                    <CategoryRow 
+                                        className="CategoryRow" 
+                                        postCategory={category.post_category}
+                                        postHexCodes={category.post_hex_codes}
+                                        postExpiry={category.post_expiry}
+                                        key={category._id}
+                                        index={i}>
+                                    </CategoryRow>
+                                </LazyLoad>
+                            )})}
                         </div>
                     </div>
                 }

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import Entry from '../../Categories/CategoryRow/Entry/Entry';
-import styles from '../CategoryExpandedBody/CategoryExpandedBody.module.css'
+import styles from '../CategoryExpandedBody/CategoryExpandedBody.module.css';
+import { forceCheck } from 'react-lazyload';
+
 
 class CategoryExpandedBody extends Component {
 
@@ -39,6 +41,7 @@ class CategoryExpandedBody extends Component {
               })
           });
         }
+        forceCheck();
     }   
 
     orderEntries(json){
@@ -55,23 +58,25 @@ class CategoryExpandedBody extends Component {
       return [newArray[1], newArray[2], newArray[3]];
     }
 
-    render(){
+    render(){   
 
         return (
             <div className={styles.CategoryExpandedBody}>
             {this.state.entries.map((entry, i) => {
-                return <Entry
-                placement={this.orderEntries(this.state.entries)}
-                cardStyle={true}
-                postUser={entry.post_username} 
-                postLikes={entry.post_likes} 
-                postImage={entry.post_image} 
-                position={i + 1} 
-                id={entry._id} 
-                key={entry._id + 1}></Entry>
-              })
+                return (
+                  <Entry
+                  placement={this.orderEntries(this.state.entries)}
+                  cardStyle={true}
+                  postUser={entry.post_username} 
+                  postLikes={entry.post_likes} 
+                  postImage={entry.post_image} 
+                  position={i + 1} 
+                  id={entry._id} 
+                  >
+                  </Entry>
+            )})
             }
-       </div>
+          </div>
         )
     }
 }

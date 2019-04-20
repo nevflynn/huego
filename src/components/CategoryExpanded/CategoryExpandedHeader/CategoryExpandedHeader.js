@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
-
+import { Link } from 'react-router-dom';
 import CategoryOrderToggle from './CategoryOrderToggle/CategoryOrderToggle';
 import entriesIcon from '../../../img/entries-icon.svg';
 import styles from '../CategoryExpandedHeader/CategoryExpandedHeader.module.css';
@@ -53,6 +53,7 @@ class CategoryExpandedHeader extends Component {
         if (this.state.isLoaded){
             var postHexCodes = this.state.postHeaders[0].post_hex_codes;
             var postCount = this.state.postHeaders[0].post_count;
+            console.log(postCount);
 
             color_1 = {
                 backgroundColor: postHexCodes[0],
@@ -85,7 +86,9 @@ class CategoryExpandedHeader extends Component {
                     </div>
                     <div className={styles.rightContainer}>
                         <CategoryOrderToggle filterCategories={this.props.filterCategories}></CategoryOrderToggle>
-                        <div className={"cardButtonPrimary large " + (this.checkExpiry() ? null : styles.hide)}><h5>Submit an entry</h5></div>
+                        <Link  to={'/new/' + this.props.categoryNumber}>
+                            <div className={"cardButtonPrimary large " + (this.checkExpiry() ? null : styles.hide)}><h5>Submit an entry</h5></div>
+                        </Link>
                     </div>
                 </div>
                 )

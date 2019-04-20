@@ -35,6 +35,8 @@
   .likeButtonIcon{
     height:8px;
     margin-right:4px;
+    animation:fadeIn .4s;
+    animation-fill-mode: backwards;
   }
 
   .active{
@@ -69,4 +71,14 @@
 
   .crownIcon{
     width:15px;
+  }
+
+
+  @keyframes fadeIn{
+    from{
+      transform:scale(.4);
+    }
+    to{
+      transform:scale(1);
+    }
   }

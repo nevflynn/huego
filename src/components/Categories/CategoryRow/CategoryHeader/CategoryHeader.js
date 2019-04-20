@@ -32,6 +32,7 @@ class Category extends Component {
           }
       }
 
+
 render(){
 
         var hideSubmit;
@@ -59,10 +60,19 @@ render(){
             <div className={'card ' + styles.CategoryCard}>
                 <div className="cardImageContainer">
                     <div className={styles.paletteInner}>
-                        <div style={color_1}></div>
-                        <div style={color_2}></div>
-                        <div style={color_3}></div>
-                        <div style={color_4}></div>
+                        <div className={styles.paletteBlock} style={color_1}>
+                            <div className={styles.paletteHex}>{this.props.postHexCodes[0]}</div>
+                        </div>
+                        <div className={styles.paletteBlock} style={color_2}>
+                            <div className={styles.paletteHex}>{this.props.postHexCodes[1]}</div>
+                        </div>
+                        <div className={styles.paletteBlock} style={color_3}>
+                            <div className={styles.paletteHex}>{this.props.postHexCodes[2]}</div>
+                        </div>
+                        <div className={styles.paletteBlock} style={color_4}>
+                            <div className={styles.paletteHex}>{this.props.postHexCodes[3]}</div>
+                        </div>
+
                     </div>
                 </div>
                 <div className="cardInfo">

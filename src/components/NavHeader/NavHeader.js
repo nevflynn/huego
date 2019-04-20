@@ -15,7 +15,6 @@ class NavHeader extends Component {
                 <div className={styles.navHeaderLinks}>
                     <Link to='/' className={styles.navHeaderLink}><h5>Home</h5></Link>
                     <Link to='/profile' className={styles.navHeaderLink}><h5>Profile</h5></Link>
-                    <Link to='/upload' className={styles.navHeaderLink}><h5>Upload</h5></Link>
                 </div>
             </div>
         )

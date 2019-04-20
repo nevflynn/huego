@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import '../../../App.css'
 import CategoryHeader from './CategoryHeader/CategoryHeader';
-
 import Entry from './Entry/Entry';
 import EntryGrid from './EntryGrid/EntryGrid';
 import styles from '../CategoryRow/CategoryRow.module.css'
@@ -83,34 +82,36 @@ class CategoryRow extends Component {
         if (this.state.entries.length > this.checkEntriesToRender()){
           var entryGrid = <EntryGrid lastFour={nextFourEntries} postCategory={this.props.postCategory}></EntryGrid>;
         }
+        var loadDelay = {
+          animationDelay: this.props.index/6 + 's',
+        };
 
 
         if (!isLoaded) {
             return <div></div>
           } else {
             return(
-              <div className={styles.CategoryRow}>
-                  <CategoryHeader 
-                    numberOfEntries={Object.keys(this.state.entries).length} 
-                    postHexCodes={this.props.postHexCodes} 
-                    postExpiry={this.props.postExpiry}
-                    postCategory={this.props.postCategory}>
-                  </CategoryHeader>
-                  <div className="entryRow">
-                      {mainEntries.map((entry, i) => {
-                          return <Entry 
-                          placement={this.orderEntries(this.state.entries)}
-                          postUser={entry.post_username} 
-                          postLikes={entry.post_likes} 
-                          postImage={entry.post_image} 
-                          position={i + 1} 
-                          id={entry._id} 
-                          key={entry._id + 1}></Entry>
-                        })
-                      }
-                      {entryGrid}
-                 </div>
-              </div>
+                <div className={styles.CategoryRow} style={loadDelay}>
+                    <CategoryHeader 
+                      numberOfEntries={Object.keys(this.state.entries).length} 
+                      postHexCodes={this.props.postHexCodes} 
+                      postExpiry={this.props.postExpiry}
+                      postCategory={this.props.postCategory}>
+                    </CategoryHeader>
+                    <div className="entryRow">
+                        {mainEntries.map((entry, i) => {
+                            return <Entry 
+                            placement={this.orderEntries(this.state.entries)}
+                            postUser={entry.post_username} 
+                            postLikes={entry.post_likes} 
+                            postImage={entry.post_image} 
+                            id={entry._id} 
+                            key={entry._id + 1}></Entry>
+                          })
+                        }
+                        {entryGrid}
+                  </div>
+                </div>
             )
         }
     }   
