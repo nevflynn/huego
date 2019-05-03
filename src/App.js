@@ -8,6 +8,7 @@ import Categories from './components/Categories/Categories';
 import NavHeader from './components/NavHeader/NavHeader';
 import CategoryExpanded from './components/CategoryExpanded/CategoryExpanded';
 import UploadEntry from './components/UploadEntry/UploadEntry';
+import Login from './components/Login/Login';
 
 class App extends Component {
 
@@ -18,6 +19,7 @@ class App extends Component {
               <Route path='/' component={NavHeader}></Route>
               <Route exact path='/' component={Categories}></Route>
               <Route path='/profile'></Route>
+              <Route path='/login' component={Login}></Route>
               <Route path='/category/:categoryNumber' component={CategoryExpanded}></Route>
               <Route path='/upload' component={UploadEntry}></Route>
               <Route path='/new/:categoryNumber' component={UploadEntry}></Route>

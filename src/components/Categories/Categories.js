@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 
 import '../../App.css';
 import CategoryRow from './CategoryRow/CategoryRow';
+// import LoginPrompt from './../LoginPrompt/LoginPrompt';
 import LazyLoad from 'react-lazyload';
+import styles from './Categories.module.css'
+import LoginPrompt from '../LoginPrompt/LoginPrompt';
 
 class Categories extends Component{
 
@@ -11,7 +14,8 @@ class Categories extends Component{
         this.state = {
           categories: [],
           isLoaded: false,
-          categoryFilter:this.props.categoryFilter
+          categoryFilter:this.props.categoryFilter,
+          loginStatus: false
         }
     }
 
@@ -48,6 +52,7 @@ class Categories extends Component{
                                 </LazyLoad>
                             )})}
                         </div>
+                        {this.state.loginStatus ? <LoginPrompt></LoginPrompt> : null}
                     </div>
                 }
             }

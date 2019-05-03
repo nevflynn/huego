@@ -22,7 +22,7 @@ class EntryGrid extends Component {
                 </div>
                 <div className="cardInfo cardInfoGrid">
                     <div className="expandCategoryButton">
-                        <Link to={'/category/' + this.props.postCategory}><h5>View all entries</h5></Link>
+                        <Link to={'/category/' + this.props.postCategory}><h5>View all</h5></Link>
                     </div>
                 </div>
             </div>

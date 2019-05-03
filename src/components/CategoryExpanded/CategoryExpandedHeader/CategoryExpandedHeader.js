@@ -53,7 +53,6 @@ class CategoryExpandedHeader extends Component {
         if (this.state.isLoaded){
             var postHexCodes = this.state.postHeaders[0].post_hex_codes;
             var postCount = this.state.postHeaders[0].post_count;
-            console.log(postCount);
 
             color_1 = {
                 backgroundColor: postHexCodes[0],

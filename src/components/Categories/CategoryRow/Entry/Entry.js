@@ -24,8 +24,15 @@ class Entry extends Component {
             likeButtonClicked: true
         })
     }
-    
-        
+
+    componentDidUpdate(prevProps){
+        if(prevProps.postLikes !== this.props.postLikes){
+              this.setState({
+                postLikes: this.props.postLikes
+        })
+    }
+}
+   
     likeButtonClicked(props){
 
         if (!this.state.likeButtonClicked){

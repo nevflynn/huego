@@ -246,11 +246,11 @@ class UploadEntry extends Component {
                             </div>
                         </div>
             }
-                    return(
-                        <div className={styles.uploadEntry}>
-                            {modal}
-                            {this.renderRedirect()}
-                        </div>
+                return(
+                    <div className={styles.uploadEntry}>
+                        {modal}
+                        {this.renderRedirect()}
+                    </div>
                     )
                 } else {
                     return null

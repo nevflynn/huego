@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import Entry from '../../Categories/CategoryRow/Entry/Entry';
 import styles from '../CategoryExpandedBody/CategoryExpandedBody.module.css';
-import { forceCheck } from 'react-lazyload';
-
 
 class CategoryExpandedBody extends Component {
 
@@ -41,7 +39,6 @@ class CategoryExpandedBody extends Component {
               })
           });
         }
-        forceCheck();
     }   
 
     orderEntries(json){
@@ -70,7 +67,7 @@ class CategoryExpandedBody extends Component {
                   postUser={entry.post_username} 
                   postLikes={entry.post_likes} 
                   postImage={entry.post_image} 
-                  position={i + 1} 
+                  key={i} 
                   id={entry._id} 
                   >
                   </Entry>

@@ -32,6 +32,10 @@
     cursor:pointer;
   }
 
+  .likeButton:active{
+    background:#8885f3;
+  }
+
   .likeButtonIcon{
     height:8px;
     margin-right:4px;

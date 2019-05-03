@@ -83,7 +83,7 @@ class CategoryRow extends Component {
           var entryGrid = <EntryGrid lastFour={nextFourEntries} postCategory={this.props.postCategory}></EntryGrid>;
         }
         var loadDelay = {
-          animationDelay: this.props.index/6 + 's',
+          animationDelay: this.props.index/10 + 's',
         };
 
 
