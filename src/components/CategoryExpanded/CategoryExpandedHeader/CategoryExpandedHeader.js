@@ -12,6 +12,7 @@ class CategoryExpandedHeader extends Component {
         this.state = {
           postHeaders: [],
           isLoaded: false,
+          postCount: ''
         }
       }
 
@@ -23,6 +24,14 @@ class CategoryExpandedHeader extends Component {
             this.setState({
                 postHeaders: json,
                 isLoaded: true,
+            })
+        });
+        let url2 = 'http://localhost:5000/api/posts/post_count/' + this.props.categoryNumber;
+        fetch(url2)
+        .then(res => res.json())
+        .then(json => {
+            this.setState({
+                postCount:json
             })
         });
     }
@@ -79,7 +88,7 @@ class CategoryExpandedHeader extends Component {
                         <div className="cardButtonSecondary large"><h5>{this.categoryStatus()}</h5></div>
                         <div className={styles.entriesContainer}>
                             <img src={entriesIcon} className={styles.entriesIcon}></img>
-                            <h5>{postCount} Entries</h5>
+                            <h5>{this.state.postCount} Entries</h5>
                         </div>
 
                     </div>

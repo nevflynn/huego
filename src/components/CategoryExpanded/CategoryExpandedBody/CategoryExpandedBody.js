@@ -16,7 +16,7 @@ class CategoryExpandedBody extends Component {
       }
 
     componentDidMount(props){
-        let url = 'http://localhost:5000/api/posts/post_category/' + this.props.categoryNumber + (!this.state.categoryFilter ? '/new' : '/popular');
+        let url = 'http://localhost:5000/api/posts/post_category/' + this.props.categoryNumber + '/popular';
         fetch(url)
         .then(res => res.json())
         .then(json => {

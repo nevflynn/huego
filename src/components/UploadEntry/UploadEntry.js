@@ -126,7 +126,7 @@ class UploadEntry extends Component {
                 console.log(response.data.imageUrl);
                 // this.setState({croppedUrl:response.data.imageUrl})
                 var headers = {
-                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYjYxN2YxYzgyOGQzMTZkZDBlODRlNCIsIm5hbWUiOiJOZXYgRmx5bm4iLCJpc19hZG1pbiI6ZmFsc2UsInVzZXJuYW1lIjoibmV2c29tZXRoaW5nZWxzZSIsImlhdCI6MTU1NTQzNzYzMSwiZXhwIjoxNTg2OTk0NTU3fQ.fwxcsXPPVvEi_gBd7npGCiUO77f6Iivf94zFjG5dju8',
+                    'Authorization': localStorage.getItem('token'),
                 }
                 axios.post('http://localhost:5000/api/posts/add_v2', {
                     post_image: response.data.imageUrl,

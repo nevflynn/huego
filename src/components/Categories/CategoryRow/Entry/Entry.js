@@ -30,6 +30,11 @@ class Entry extends Component {
               this.setState({
                 postLikes: this.props.postLikes
         })
+        if(localStorage.getItem(this.props.id)){
+            this.setState({likeButtonClicked:true})
+        } else {
+            this.setState({likeButtonClicked:false})
+        }
     }
 }
    
@@ -45,7 +50,7 @@ class Entry extends Component {
                 post_likes: this.state.postLikes + 1,
             })
             .then(function (response) {
-                console.log(response);
+                // console.log(response);
             })
             .catch(function (error) {
                 console.log(error);
@@ -59,7 +64,7 @@ class Entry extends Component {
                 post_likes: this.state.postLikes - 1,
             })
             .then(function (response) {
-                console.log(response);
+                // console.log(response);
             })
             .catch(function (error) {
                 console.log(error);

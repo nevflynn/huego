@@ -16,6 +16,7 @@ class CategoryExpanded extends Component {
     filterCategories(){
         this.setState({categoryFilter: !this.state.categoryFilter});
     }
+ 
 
     render(){
         var categoryNumber = this.props.match.params.categoryNumber;
