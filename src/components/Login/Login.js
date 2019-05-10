@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {withRouter, Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import '../../App.css';
 import loginIcon from '../../img/login-icon.svg';
@@ -38,7 +38,6 @@ class Login extends Component {
           })
           .then((response) => {
             console.log(response);
-            // console.log('The token is' + response.data.token);
             localStorage.setItem('token', response.data.token);
             this.setState({loginStatus:true});
           })

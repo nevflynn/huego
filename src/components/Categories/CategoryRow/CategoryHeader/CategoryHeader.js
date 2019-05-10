@@ -11,7 +11,7 @@ class Category extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            redirect:false
+            redirect:false,
         }
       }
 
@@ -40,6 +40,7 @@ class Category extends Component {
             this.setState({redirect:true})
           } else {
             console.log('no keys here!');
+             this.props.loginHandler();
           }
       }
 

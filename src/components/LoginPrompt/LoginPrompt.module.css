@@ -9,17 +9,77 @@
         display:flex;
         justify-content: center;
         align-items: center;
+        animation:fadeIn .2s;
 }
 
 .promptModal{
         background:white;
-        padding:50px;
-        border-radius:5px;
+        border-radius:12px;
+        animation:fadeInUp .2s;
+        width:500px;
+        overflow: hidden;
+}
+
+.promptModal img{
+        width:100%;
+}
+
+.promptModal h4 {
+        margin:15px 0;
+        font-weight:400;
 }
 
 .promptButton{
-        background:#9293ee;
-        border:none;
-        padding:12px;
+        display:flex;
+        align-items:center;
+        color:white;
+        padding:10px 10px;
+        background:#263646;
         border-radius:5px;
+        box-sizing:border-box;
+        transition:.2s ease;
+        border:none;
+        font-size:11pt;
+        display:inline-block;
+}
+
+.promptButton:hover{
+        background:#9293ee;
+        transition:.2s ease;
+        cursor:pointer;
+}
+
+.modalInner{    
+        padding:30px;
+}
+
+.createAccount{
+        margin-left:15px;
+        color:#263646;
+        transition:.2s ease;
+}
+
+.createAccount:hover{
+        color:#9293ee;
+        transition:.2s ease;
+}
+
+@keyframes fadeInUp{
+        from{
+            opacity:0;
+            transform:translatey(10px);
+        }
+        to{
+            opacity:1;
+            transform:translatey(0);
+        }
+    }
+
+@keyframes fadeIn{
+        from{
+                opacity:0;
+        }
+        to{
+                opacity:1;
+        }
 }

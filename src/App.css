@@ -129,6 +129,12 @@ h5 {
     border-radius:5px;
     box-sizing:border-box;
     text-decoration:none;
+    transition:.2s ease;
+}
+
+.expandCategoryButton a:hover{
+    background:#8885f3;
+    transition:.2s ease;
 }
 
 @keyframes fadeIn {

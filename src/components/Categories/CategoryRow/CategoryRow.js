@@ -96,7 +96,8 @@ class CategoryRow extends Component {
                       numberOfEntries={Object.keys(this.state.entries).length} 
                       postHexCodes={this.props.postHexCodes} 
                       postExpiry={this.props.postExpiry}
-                      postCategory={this.props.postCategory}>
+                      postCategory={this.props.postCategory}
+                      loginHandler={this.props.loginHandler}>
                     </CategoryHeader>
                     <div className="entryRow">
                         {mainEntries.map((entry, i) => {

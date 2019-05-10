@@ -108,3 +108,4 @@ class CategoryExpandedHeader extends Component {
 
 
 export default CategoryExpandedHeader;
+

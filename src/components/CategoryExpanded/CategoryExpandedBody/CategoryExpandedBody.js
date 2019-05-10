@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
 import Entry from '../../Categories/CategoryRow/Entry/Entry';
 import styles from '../CategoryExpandedBody/CategoryExpandedBody.module.css';
 
 class CategoryExpandedBody extends Component {
-
 
     constructor(props) {
         super(props);

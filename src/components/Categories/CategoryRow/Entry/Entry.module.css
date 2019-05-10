@@ -34,7 +34,6 @@
 
   .likeButton:active{
     transform:translateY(1px);
-    transition:.1s ease;
   }
 
   .likeButtonIcon{
