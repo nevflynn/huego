@@ -18,24 +18,30 @@ class Entry extends Component {
         }
     }
 
-    //Check if the id exists in local storage, if it does, change the likeButtonClicked state to true
+    // Check if the id exists in local storage, if it does, change the likeButtonClicked state to true
     componentWillMount() {
-        localStorage.getItem(this.props.id) && this.setState({
-            likeButtonClicked: true
-        })
-    }
-
-    componentDidUpdate(prevProps){
-        if(prevProps.postLikes !== this.props.postLikes){
-              this.setState({
-                postLikes: this.props.postLikes
-        })
         if(localStorage.getItem(this.props.id)){
             this.setState({likeButtonClicked:true})
         } else {
             this.setState({likeButtonClicked:false})
         }
     }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.postLikes !== this.props.postLikes){
+                this.setState({
+                postLikes: this.props.postLikes
+            })
+        }
+        if(prevProps.id !== this.props.id){
+            if(localStorage.getItem(this.props.id)){
+                this.setState({likeButtonClicked:true})
+            } else {
+                this.setState({likeButtonClicked:false})
+            }
+        }
+
+
 }
    
     likeButtonClicked(props){

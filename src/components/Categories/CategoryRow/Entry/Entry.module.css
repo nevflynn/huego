@@ -27,13 +27,14 @@
   }
   
   .likeButton:hover{
-    background:#F5FCFF;
-    transition:.1s ease;
+    background:rgb(234, 249, 255);
+    transition:.2s ease;
     cursor:pointer;
   }
 
   .likeButton:active{
-    background:#8885f3;
+    transform:translateY(1px);
+    transition:.1s ease;
   }
 
   .likeButtonIcon{

@@ -8,6 +8,13 @@ import hexieLogo from '../../img/hexie-logo.svg';
 class NavHeader extends Component {
     render(){
 
+        var loginButton;
+        if(!localStorage.getItem('token')){
+            loginButton = <Link to='/login' className={styles.navHeaderLink}><h5>Login</h5></Link>
+        } else {
+            loginButton = <Link to='/profile' className={styles.navHeaderLink}><h5>Profile</h5></Link>
+        }
+
         return(
             <div className={styles.navHeader}>
             <div className={styles.navHeaderLeft}>
@@ -16,7 +23,7 @@ class NavHeader extends Component {
                 <div className={styles.navHeaderLinks}>
                     <Link to='/' className={styles.navHeaderLink}><h5>Home</h5></Link>
                     {/* <Link to='/profile' className={styles.navHeaderLink}><h5>Profile</h5></Link> */}
-                    <Link to='/login' className={styles.navHeaderLink}><h5>Login</h5></Link>
+                    {loginButton}
                 </div>
             </div>
         )
@@ -24,3 +31,9 @@ class NavHeader extends Component {
 }
 
 export default NavHeader;
+
+// if(localStorage.getItem(this.props.id)){
+//     this.setState({likeButtonClicked:true})
+// } else {
+//     this.setState({likeButtonClicked:false})
+// }
