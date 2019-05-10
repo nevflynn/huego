@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 import '../../App.css';
-import loginIcon from '../../img/login-icon.svg';
+import modalHeader from '../../img/modal-style-2.png';
 import styles from '../Login/Login.module.css';
 
 class Login extends Component {
@@ -57,16 +57,18 @@ class Login extends Component {
         return(
             <div className={styles.login}>
                 <div className={styles.loginModal}>
-                    <img src={loginIcon} className={styles.loginIcon}></img>
-                    <div className={styles.errorMessage} style={ { display: this.state.displayError ? 'flex' : 'none' } }>Incorrect username or password</div>
-                    <form onSubmit={this.handleSubmit}>
-                        <label htmlFor="username">Username</label>
-                        <input className={styles.input} placeholder="Username" onChange={this.handleChange} value={this.state.email} id="username" autoFocus></input>
-                        <label htmlFor="username">Password</label>
-                        <input className={styles.input} type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} id="password"></input>
-                        <button className={styles.loginButton} type="submit" >Login</button>
-                    </form>
-                    <a href="#" className={styles.forgotPassword}>Having trouble logging in?</a>
+                    <img src={modalHeader} className={styles.modalHeader}></img>
+                    <div className={styles.loginModalInner}>
+                        <div className={styles.errorMessage} style={ { display: this.state.displayError ? 'flex' : 'none' } }>Incorrect username or password</div>
+                        <form onSubmit={this.handleSubmit}>
+                            <input className={styles.input} placeholder="Username" onChange={this.handleChange} value={this.state.email} id="username" autoFocus></input>
+                            <input className={styles.input} type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} id="password"></input>
+                            <button className={styles.loginButton} type="submit" >Login</button>
+                        </form>
+                        <div className={styles.forgotPassword}>
+                            <a href="#" >Having trouble logging in?</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

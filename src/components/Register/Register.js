@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 import '../../App.css';
-import registerIcon from '../../img/login-icon.svg';
+import modalHeader from '../../img/thin-modal-style-1.png';
 import styles from '../Register/Register.module.css';
 
 class Register extends Component {
@@ -64,22 +64,27 @@ class Register extends Component {
         return(
             <div className={styles.register}>
                 <div className={styles.registerModal}>
-                    <form onSubmit={this.handleSubmit}>
-                    <div className={styles.formGroup}>
-                        <div>
-                            <input className={styles.input} placeholder="First name" onChange={this.handleChange} value={this.state.firstName} id="firstName" autoFocus></input>
+                    <img src={modalHeader} className={styles.modalHeader}></img>
+                    <div className={styles.registerModalInner}>
+                        <form onSubmit={this.handleSubmit}>
+                        <div className={styles.formGroup}>
+                            <div>
+                                <input className={styles.input} placeholder="First name" onChange={this.handleChange} value={this.state.firstName} id="firstName" autoFocus></input>
+                            </div>
+                            <div>
+                                <input className={styles.input} placeholder="Last name" onChange={this.handleChange} value={this.state.lastName} id="lastName"></input>
+                            </div>
                         </div>
-                        <div>
-                            <input className={styles.input} placeholder="Last name" onChange={this.handleChange} value={this.state.lastName} id="lastName"></input>
+                            <input className={styles.input} type="text" placeholder="Username" onChange={this.handleChange} value={this.state.username} id="username"></input>
+                            <input className={styles.input} type="email" placeholder="Email" onChange={this.handleChange} value={this.state.email} id="email"></input>
+                            <input className={styles.input} type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password1} id="password1"></input>
+                            <input className={styles.input} type="password" placeholder="Confirm password" onChange={this.handleChange} value={this.state.password2} id="password2"></input>
+                            <button className={styles.registerButton} type="submit">Register</button>
+                        </form>
+                        <div className={styles.logIn}>
+                            <a href="#">Already have an account? Log in</a>
                         </div>
                     </div>
-                        <input className={styles.input} type="text" placeholder="Username" onChange={this.handleChange} value={this.state.username} id="username"></input>
-                        <input className={styles.input} type="email" placeholder="Email" onChange={this.handleChange} value={this.state.email} id="email"></input>
-                        <input className={styles.input} type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password1} id="password1"></input>
-                        <input className={styles.input} type="password" placeholder="Confirm password" onChange={this.handleChange} value={this.state.password2} id="password2"></input>
-                        <button className={styles.registerButton} type="submit">Register</button>
-                    </form>
-                    <a href="#" className={styles.forgotPassword}>Already have an account? Log in</a>
                 </div>
             </div>
         )

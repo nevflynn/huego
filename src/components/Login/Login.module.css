@@ -1,3 +1,7 @@
+a{
+    color:inherit;
+}
+
 .login{
     height:100vh;
     display:flex;
@@ -7,7 +11,6 @@
 
 .loginModal{
     background:white;
-    padding:50px;
     display:flex;
     flex-direction:column;
     border-radius:25px;
@@ -16,6 +19,15 @@
     box-sizing:border-box;
     animation:fadeInUp .2s;
     transition:.4s ease;
+    overflow:hidden;
+}
+
+.loginModalInner{
+    padding:40px 50px;
+}
+
+.modalHeader{
+    width:100%;
 }
 
 label{
@@ -28,7 +40,7 @@ label{
     width:100%;
     padding:15px;
     font-size:12pt;
-    margin:8px 0;
+    margin-bottom:15px;
     border-radius: 8px;
     border:1px #f4f4f4 solid;
     box-sizing:border-box;
@@ -52,7 +64,7 @@ label{
     width:100%;
     padding:15px;
     border-radius:8px;
-    background:#8885f3;
+    background:#263646;
     border:none;
     font-size:12pt;
     color:white;
@@ -60,7 +72,7 @@ label{
 }
 
 .loginButton:hover{
-    background:#7370E8;
+    background:#8885f3;
     transition:.2s ease;
     cursor:pointer;
 }
@@ -91,7 +103,7 @@ button:focus{
 .errorMessage{
     display:flex;
     justify-content: center;
-    margin-bottom:10px;
+    margin-bottom:15px;
     background:#8885f345;
     padding:20px 0;
     border-radius:8px;
