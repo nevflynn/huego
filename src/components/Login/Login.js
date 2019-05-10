@@ -15,12 +15,30 @@ class Login extends Component {
           username: '',
           password: '',
           loginStatus:false,
-          displayError: false
+          displayError: false,
+          errorMessage: ''
         };
       }
 
     validateForm() {
-        return this.state.username.length > 0 && this.state.password.length > 0;
+        let validationStatus = false;
+        let errorMessage = '';
+
+        if(!this.state.username.length > 0 && !this.state.password.length > 0){
+            validationStatus = false;
+            errorMessage = 'Whoops! Please enter your username and password.';
+        } else if(!this.state.username.length > 0){
+            validationStatus = false;
+            errorMessage = 'You entered a password but not a username.';
+        } else if (!this.state.password.length > 0){
+            validationStatus = false;
+            errorMessage = 'Looks like you forgot your password there, ' + this.state.username + '.';
+        } else {
+            validationStatus = true;
+        }
+
+        this.setState({errorMessage: errorMessage, displayError: !validationStatus});
+        return validationStatus;
     }
 
     handleChange = event => {
@@ -31,7 +49,7 @@ class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        console.log(this.state.username);
+        if(this.validateForm()){
         axios.post('http://localhost:5000/api/users/login', {
             username: this.state.username,
             password: this.state.password
@@ -42,10 +60,11 @@ class Login extends Component {
             this.setState({loginStatus:true});
           })
           .catch((error) => {
-            console.log(error);
-            this.setState({displayError:true});
+            let errorObject = error.response.data;
+            let errorMessage = errorObject[Object.keys(errorObject)[0]];
+            this.setState({displayError:true, errorMessage: errorMessage});
           });
-        
+        } 
     }
 
     render(){
@@ -59,7 +78,7 @@ class Login extends Component {
                 <div className={styles.loginModal}>
                     <img src={modalHeader} className={styles.modalHeader}></img>
                     <div className={styles.loginModalInner}>
-                        <div className={styles.errorMessage} style={ { display: this.state.displayError ? 'flex' : 'none' } }>Incorrect username or password</div>
+                        <div className={styles.errorMessage} style={ { display: this.state.displayError ? 'flex' : 'none' } }>{this.state.errorMessage}</div>
                         <form onSubmit={this.handleSubmit}>
                             <input className={styles.input} placeholder="Username" onChange={this.handleChange} value={this.state.email} id="username" autoFocus></input>
                             <input className={styles.input} type="password" placeholder="Password" onChange={this.handleChange} value={this.state.password} id="password"></input>
