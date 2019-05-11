@@ -111,7 +111,6 @@ button:focus{
     display:none;
     animation:fadeInUp .2s;
     line-height: 24px;
-
 }
 
 @keyframes fadeInUp{
